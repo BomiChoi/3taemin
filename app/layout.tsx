@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "삼태민 - 티켓팅 연습",
-  description: "정각 클릭, 보안문자, 포도알 클릭 티켓팅 3종 연습 사이트",
+  description: "예매버튼 클릭, 보안문자 입력, 포도알 클릭 티켓팅 3종 연습 사이트",
 };
 
 export default function RootLayout({

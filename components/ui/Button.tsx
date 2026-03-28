@@ -15,11 +15,11 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-blue-700 text-white hover:bg-blue-800 disabled:bg-blue-300 active:bg-blue-900",
+    "bg-teal-700 text-white hover:bg-teal-800 disabled:bg-teal-300 active:bg-teal-900",
   secondary:
     "bg-gray-100 text-gray-900 hover:bg-gray-200 disabled:bg-gray-50 disabled:text-gray-400",
   outline:
-    "border border-blue-700 text-blue-700 hover:bg-blue-50 disabled:border-gray-300 disabled:text-gray-400",
+    "border border-teal-700 text-teal-700 hover:bg-teal-50 disabled:border-gray-300 disabled:text-gray-400",
   ghost:
     "text-gray-600 hover:bg-gray-100 disabled:text-gray-300",
 };
@@ -45,7 +45,7 @@ export function Button({
       disabled={disabled || loading}
       className={cn(
         "inline-flex items-center justify-center gap-2 font-medium transition-colors cursor-pointer",
-        "disabled:cursor-not-allowed",
+        
         variantStyles[variant],
         sizeStyles[size],
         className

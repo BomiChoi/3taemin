@@ -75,14 +75,14 @@ export default function GrapePage() {
       {!started && (
         <button
           onClick={handleStart}
-          className="w-full max-w-xs h-12 rounded-xl bg-blue-700 text-white font-semibold hover:bg-blue-800 transition-colors cursor-pointer"
+          className="w-full max-w-xs h-12 rounded-xl bg-teal-700 text-white font-semibold hover:bg-teal-800 transition-colors cursor-pointer"
         >
           연습 시작
         </button>
       )}
 
       {/* Result Modal */}
-      <Modal open={modalOpen} onClose={() => setModalOpen(false)} title="결과">
+      <Modal open={modalOpen} onClose={handleRetry} title="결과">
         {result && (
           <div className="flex flex-col gap-6">
             <ResultCard

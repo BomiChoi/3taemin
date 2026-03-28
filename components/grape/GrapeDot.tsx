@@ -11,7 +11,7 @@ type GrapeDotProps = {
 };
 
 const stateStyles = {
-  sold:      "bg-gray-200 cursor-not-allowed",
+  sold:      "bg-gray-200",
   available: "bg-green-400 hover:bg-green-500 cursor-pointer shadow-sm",
   target:    "bg-purple-500 hover:bg-purple-600 cursor-pointer shadow-sm ring-2 ring-purple-300",
 };

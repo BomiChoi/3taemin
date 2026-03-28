@@ -39,13 +39,13 @@ export default async function RankingPage({ searchParams }: PageProps) {
         <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-3">
           <Link
             href="/"
-            className="flex items-center gap-1 text-sm text-gray-500 hover:text-blue-700 transition-colors"
+            className="flex items-center gap-1 text-sm text-gray-500 hover:text-teal-700 transition-colors"
           >
             <ChevronLeft className="w-4 h-4" />
             홈
           </Link>
           <span className="text-gray-200">|</span>
-          <span className="text-sm font-bold text-blue-700">삼태민</span>
+          <span className="text-sm font-bold text-teal-700">삼태민</span>
         </div>
       </header>
 

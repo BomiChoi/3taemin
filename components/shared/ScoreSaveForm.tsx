@@ -54,7 +54,7 @@ export function ScoreSaveForm({ mode, score, rawData, onSaved }: ScoreSaveFormPr
           onKeyDown={(e) => e.key === "Enter" && handleSave()}
           placeholder="닉네임 (최대 10자)"
           maxLength={10}
-          className="flex-1 h-10 px-3 text-sm text-gray-900 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+          className="flex-1 h-10 px-3 text-sm text-gray-900 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500"
         />
         <Button
           size="md"

@@ -76,10 +76,10 @@ export default function TimingPage() {
         className={cn(
           "w-full h-16 rounded-xl text-lg font-bold transition-all duration-150 select-none",
           !started || !isReady
-            ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+            ? "bg-gray-200 text-gray-400"
             : result
-            ? "bg-gray-300 text-gray-500 cursor-not-allowed"
-            : "bg-blue-700 text-white hover:bg-blue-800 active:scale-95 shadow-lg shadow-blue-200 cursor-pointer"
+            ? "bg-gray-300 text-gray-500"
+            : "bg-teal-700 text-white hover:bg-teal-800 active:scale-95 shadow-lg shadow-teal-200 cursor-pointer"
         )}
       >
         {!started ? "대기 중" : isReady && !result ? "예매하기" : isReady ? "완료" : "예매하기"}
@@ -89,14 +89,14 @@ export default function TimingPage() {
       {!started && (
         <button
           onClick={handleStart}
-          className="w-full h-12 rounded-xl border-2 border-blue-700 text-blue-700 font-semibold hover:bg-blue-50 transition-colors cursor-pointer"
+          className="w-full h-12 rounded-xl border-2 border-teal-700 text-teal-700 font-semibold hover:bg-teal-50 transition-colors cursor-pointer"
         >
           연습 시작
         </button>
       )}
 
       {/* Result Modal */}
-      <Modal open={modalOpen} onClose={() => setModalOpen(false)} title="결과">
+      <Modal open={modalOpen} onClose={handleRetry} title="결과">
         {lastResult && (
           <div className="flex flex-col gap-6">
             <ResultCard

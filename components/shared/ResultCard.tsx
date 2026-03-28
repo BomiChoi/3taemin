@@ -42,7 +42,7 @@ export function ResultCard({ title, score, grade, items, className }: ResultCard
       )}
 
       <div className="flex flex-col items-center gap-1">
-        <span className="text-5xl font-bold text-blue-700 tabular-nums">
+        <span className="text-5xl font-bold text-teal-700 tabular-nums">
           {score.toLocaleString()}
         </span>
         <span className="text-sm text-gray-500">점</span>
@@ -53,7 +53,7 @@ export function ResultCard({ title, score, grade, items, className }: ResultCard
           {items.map((item) => (
             <div key={item.label} className="flex justify-between text-sm">
               <span className="text-gray-500">{item.label}</span>
-              <span className={cn("font-medium", item.highlight ? "text-blue-700" : "text-gray-900")}>
+              <span className={cn("font-medium", item.highlight ? "text-teal-700" : "text-gray-900")}>
                 {item.value}
               </span>
             </div>

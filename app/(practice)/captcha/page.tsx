@@ -72,7 +72,7 @@ export default function CaptchaPage() {
             />
             <button
               onClick={fetchCaptcha}
-              className="absolute top-2 right-2 p-1.5 rounded-md bg-white/80 hover:bg-white text-gray-500 hover:text-blue-700 transition-colors"
+              className="absolute top-2 right-2 p-1.5 rounded-md bg-white/80 hover:bg-white text-gray-500 hover:text-teal-700 transition-colors"
               title="새로고침"
             >
               <RefreshCw className="w-4 h-4" />
@@ -95,7 +95,7 @@ export default function CaptchaPage() {
               onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
               placeholder="보안문자 입력"
               maxLength={6}
-              className="flex-1 h-12 px-4 text-lg font-mono tracking-widest border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 uppercase"
+              className="flex-1 h-12 px-4 text-lg font-mono tracking-widest border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 uppercase"
               autoComplete="off"
             />
             <Button size="lg" onClick={handleSubmit} disabled={!answer.trim()}>
@@ -106,7 +106,7 @@ export default function CaptchaPage() {
       )}
 
       {/* Result Modal */}
-      <Modal open={modalOpen} onClose={() => setModalOpen(false)} title="결과">
+      <Modal open={modalOpen} onClose={handleRetry} title="결과">
         {result && (
           <div className="flex flex-col gap-6">
             <ResultCard
