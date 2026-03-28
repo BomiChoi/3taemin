@@ -60,7 +60,7 @@ export function LeaderBoard({ scores }: LeaderBoardProps) {
                   {modeLabels[score.mode] ?? score.mode}
                 </span>
               </td>
-              <td className="px-4 py-3 text-right font-bold text-teal-700 tabular-nums">
+              <td className="px-4 py-3 text-right font-bold text-teal-600 tabular-nums">
                 {score.score.toLocaleString()}
               </td>
               <td className="px-4 py-3 text-right text-gray-400 hidden sm:table-cell">

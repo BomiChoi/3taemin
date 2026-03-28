@@ -33,7 +33,7 @@ export function Timer({ remainingMs, className, size = "md" }: TimerProps) {
       className={cn(
         "font-mono font-bold tabular-nums transition-colors",
         sizeStyles[size],
-        isDone && "text-teal-700",
+        isDone && "text-teal-600",
         isUrgent && !isDone && "text-red-500 animate-pulse",
         !isUrgent && !isDone && "text-gray-900",
         className

@@ -75,7 +75,7 @@ export default function GrapePage() {
       {!started && (
         <button
           onClick={handleStart}
-          className="w-full max-w-xs h-12 rounded-xl bg-teal-700 text-white font-semibold hover:bg-teal-800 transition-colors cursor-pointer"
+          className="w-full max-w-xs h-12 rounded-xl bg-teal-600 text-white font-semibold hover:bg-teal-800 transition-colors cursor-pointer"
         >
           연습 시작
         </button>

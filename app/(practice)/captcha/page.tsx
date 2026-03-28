@@ -75,7 +75,7 @@ export default function CaptchaPage() {
             />
             <button
               onClick={fetchCaptcha}
-              className="absolute top-2 right-2 p-1.5 rounded-md bg-white/80 hover:bg-white text-gray-500 hover:text-teal-700 transition-colors"
+              className="absolute top-2 right-2 p-1.5 rounded-md bg-white/80 hover:bg-white text-gray-500 hover:text-teal-600 transition-colors"
               title="새로고침"
             >
               <RefreshCw className="w-4 h-4" />

@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { cn } from "@/lib/utils";
 
 const TABS = [
-  { value: "",        label: "전체",    activeStyle: "bg-teal-500 text-white" },
+  { value: "",        label: "전체",    activeStyle: "bg-teal-600 text-white" },
   { value: "timing",  label: "예매버튼", activeStyle: "bg-blue-500 text-white" },
   { value: "captcha", label: "보안문자", activeStyle: "bg-purple-500 text-white" },
   { value: "grape",   label: "포도알",  activeStyle: "bg-green-500 text-white" },

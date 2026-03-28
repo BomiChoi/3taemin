@@ -59,12 +59,12 @@ export default function Home() {
       <header className="bg-white border-b border-gray-200">
         <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <span className="text-2xl font-black text-teal-700">삼태민</span>
+            <span className="text-2xl font-black text-teal-600">삼태민</span>
             <span className="text-xs text-gray-400 font-medium">티켓팅 연습</span>
           </div>
           <Link
             href="/ranking"
-            className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-teal-700 transition-colors"
+            className="flex items-center gap-1.5 text-sm text-gray-500 hover:text-teal-600 transition-colors"
           >
             <Trophy className="w-4 h-4" />
             랭킹
@@ -104,7 +104,7 @@ export default function Home() {
                   <p className="text-sm font-medium text-gray-600 mb-2">{description}</p>
                   <p className="text-xs text-gray-400 leading-relaxed flex-1">{detail}</p>
                   <div className="mt-5 pt-4 border-t border-gray-100">
-                    <span className="text-sm font-semibold text-teal-700 group-hover:underline">
+                    <span className="text-sm font-semibold text-teal-600 group-hover:underline">
                       연습하기 →
                     </span>
                   </div>

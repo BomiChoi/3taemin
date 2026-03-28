@@ -15,11 +15,11 @@ type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary:
-    "bg-teal-700 text-white hover:bg-teal-800 disabled:bg-teal-300 active:bg-teal-900",
+    "bg-teal-600 text-white hover:bg-teal-800 disabled:bg-teal-300 active:bg-teal-900",
   secondary:
     "bg-gray-100 text-gray-900 hover:bg-gray-200 disabled:bg-gray-50 disabled:text-gray-400",
   outline:
-    "border border-teal-700 text-teal-700 hover:bg-teal-50 disabled:border-gray-300 disabled:text-gray-400",
+    "border border-teal-600 text-teal-600 hover:bg-teal-50 disabled:border-gray-300 disabled:text-gray-400",
   ghost:
     "text-gray-600 hover:bg-gray-100 disabled:text-gray-300",
 };
