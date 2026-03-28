@@ -98,7 +98,7 @@ export default function CaptchaPage() {
               onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
               placeholder="보안문자 입력"
               maxLength={6}
-              className="flex-1 h-12 px-4 text-lg font-mono tracking-widest border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 uppercase"
+              className="flex-1 h-12 px-4 text-lg text-gray-900 font-mono tracking-widest border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 uppercase"
               autoComplete="off"
             />
             <Button size="lg" onClick={handleSubmit} disabled={!answer.trim()}>
