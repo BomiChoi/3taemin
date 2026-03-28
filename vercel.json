@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "app/api/captcha/route.ts": {
+      "maxDuration": 10
+    }
+  }
+}
