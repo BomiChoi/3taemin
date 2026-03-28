@@ -6,9 +6,15 @@ type LeaderBoardProps = {
 };
 
 const modeLabels: Record<string, string> = {
-  timing:  "정각 클릭",
+  timing:  "예매버튼",
   captcha: "보안문자",
   grape:   "포도알",
+};
+
+const modeBadgeStyles: Record<string, string> = {
+  timing:  "bg-blue-50 text-blue-700",
+  captcha: "bg-purple-50 text-purple-700",
+  grape:   "bg-green-50 text-green-700",
 };
 
 const rankStyles: Record<number, string> = {
@@ -50,7 +56,7 @@ export function LeaderBoard({ scores }: LeaderBoardProps) {
               </td>
               <td className="px-4 py-3 font-medium text-gray-900">{score.nickname}</td>
               <td className="px-4 py-3 text-center">
-                <span className="inline-block px-2 py-0.5 rounded-full text-xs bg-teal-50 text-teal-700 font-medium">
+                <span className={cn("inline-block px-2 py-0.5 rounded-full text-xs font-medium", modeBadgeStyles[score.mode] ?? "bg-gray-50 text-gray-700")}>
                   {modeLabels[score.mode] ?? score.mode}
                 </span>
               </td>
