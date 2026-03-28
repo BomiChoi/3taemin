@@ -13,6 +13,7 @@ export default function CaptchaPage() {
   const { captcha, result, attempts, loading, fetchCaptcha, submit, reset } = useCaptcha();
   const [answer, setAnswer] = useState("");
   const [shake, setShake] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [saved, setSaved] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -27,7 +28,9 @@ export default function CaptchaPage() {
 
   const handleSubmit = useCallback(async () => {
     if (!answer.trim()) return;
+    setSubmitting(true);
     const correct = await submit(answer);
+    setSubmitting(false);
     if (!correct) {
       setShake(true);
       setAnswer("");
@@ -79,7 +82,7 @@ export default function CaptchaPage() {
             </button>
           </div>
 
-          {attempts > 0 && !result && (
+          {attempts > 0 && !result && !submitting && (
             <p className="text-xs text-center text-red-500">
               오답! 새 보안문자가 발급됐어요 (시도: {attempts}회)
             </p>
