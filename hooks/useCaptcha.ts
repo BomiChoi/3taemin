@@ -32,8 +32,9 @@ export function useCaptcha(): UseCaptchaReturn {
       const res = await fetch("/api/captcha");
       const data = await res.json();
       setCaptcha({ sessionKey: data.sessionKey, imageBase64: data.imageBase64 });
-      startTimeRef.current = Date.now();
-      setAttempts(0);
+      if (startTimeRef.current === 0) {
+        startTimeRef.current = Date.now();
+      }
       setResult(null);
     } finally {
       setLoading(false);
