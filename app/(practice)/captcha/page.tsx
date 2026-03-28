@@ -79,7 +79,7 @@ export default function CaptchaPage() {
             </button>
           </div>
 
-          {attempts > 0 && (
+          {attempts > 0 && !result && (
             <p className="text-xs text-center text-red-500">
               오답! 새 보안문자가 발급됐어요 (시도: {attempts}회)
             </p>
