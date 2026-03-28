@@ -86,11 +86,12 @@ export default function GrapePage() {
         {result && (
           <div className="flex flex-col gap-6">
             <ResultCard
-              title={result.correct ? "정답!" : "오답"}
+              title={result.correct ? "성공!" : "실패"}
               score={result.score}
+              grade={result.correct ? result.grade : undefined}
               items={[
-                { label: "반응 시간", value: `${(result.timeMs / 1000).toFixed(2)}초`, highlight: true },
-                { label: "정답 여부", value: result.correct ? "O" : "X" },
+                { label: "소요 시간", value: `${(result.timeMs / 1000).toFixed(2)}초`, highlight: true },
+                ...(result.correct ? [{ label: "등급", value: result.grade }] : []),
               ]}
             />
             {result.correct && !saved && (

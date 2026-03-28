@@ -2,7 +2,14 @@
 
 import { useState, useCallback, useRef } from "react";
 import { generateGrapeGrid } from "@/lib/utils/grape";
-import type { GrapeDot, GrapeResult } from "@/types/game";
+import type { GrapeDot, GrapeResult, TimingGrade } from "@/types/game";
+
+function calcGrapeGrade(timeMs: number): TimingGrade {
+  if (timeMs <= 800) return "Perfect";
+  if (timeMs <= 1000) return "Excellent";
+  if (timeMs <= 1200) return "Good";
+  return "Late";
+}
 
 type UseGrapeReturn = {
   dots: GrapeDot[];
@@ -28,7 +35,8 @@ export function useGrape(): UseGrapeReturn {
     const timeMs = Date.now() - startTimeRef.current;
     const correct = dot.state === "target";
     const score = correct ? Math.max(0, 3000 - timeMs) : 0;
-    setResult({ correct, timeMs, score, difficulty: "normal" });
+    const grade = calcGrapeGrade(timeMs);
+    setResult({ correct, timeMs, score, grade, difficulty: "normal" });
   }, [result]);
 
   const reset = useCallback(() => {

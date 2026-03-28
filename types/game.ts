@@ -29,5 +29,6 @@ export type GrapeResult = {
   correct: boolean;
   timeMs: number;
   score: number;
+  grade: TimingGrade;
   difficulty: GrapeDifficulty;
 };
