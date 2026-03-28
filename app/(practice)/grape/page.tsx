@@ -6,18 +6,9 @@ import { GrapeGrid } from "@/components/grape/GrapeGrid";
 import { Modal } from "@/components/ui/Modal";
 import { ResultCard } from "@/components/shared/ResultCard";
 import { ScoreSaveForm } from "@/components/shared/ScoreSaveForm";
-import { cn } from "@/lib/utils";
-import type { GrapeDifficulty } from "@/types/game";
-
-const DIFFICULTIES: { value: GrapeDifficulty; label: string; desc: string }[] = [
-  { value: "easy",   label: "쉬움",   desc: "10×7 격자" },
-  { value: "normal", label: "보통",   desc: "14×9 격자" },
-  { value: "hard",   label: "어려움", desc: "18×11 격자" },
-];
 
 export default function GrapePage() {
-  const { dots, result, difficulty, start, clickDot, reset } = useGrape();
-  const [selectedDiff, setSelectedDiff] = useState<GrapeDifficulty>("normal");
+  const { dots, result, start, clickDot, reset } = useGrape();
   const [modalOpen, setModalOpen] = useState(false);
   const [revealed, setRevealed] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -34,8 +25,8 @@ export default function GrapePage() {
     setStarted(true);
     setRevealed(false);
     setSaved(false);
-    start(selectedDiff);
-  }, [selectedDiff, start]);
+    start();
+  }, [start]);
 
   const handleRetry = useCallback(() => {
     setModalOpen(false);
@@ -51,31 +42,10 @@ export default function GrapePage() {
       <div className="text-center">
         <h1 className="text-2xl font-bold text-gray-900">포도알 클릭 연습</h1>
         <p className="text-sm text-gray-500 mt-1">
-          <span className="inline-block w-3 h-3 rounded-full bg-orange-400 mr-1 align-middle" />
-          주황색 포도알을 빠르게 찾아 클릭하세요
+          <span className="inline-block w-3 h-3 rounded-full bg-purple-500 mr-1 align-middle" />
+          보라색 포도알을 빠르게 찾아 클릭하세요
         </p>
       </div>
-
-      {/* Difficulty Selector */}
-      {!started && (
-        <div className="flex gap-2">
-          {DIFFICULTIES.map(({ value, label, desc }) => (
-            <button
-              key={value}
-              onClick={() => setSelectedDiff(value)}
-              className={cn(
-                "flex flex-col items-center px-5 py-3 rounded-xl border-2 text-sm font-medium transition-colors cursor-pointer",
-                selectedDiff === value
-                  ? "border-blue-700 bg-blue-50 text-blue-700"
-                  : "border-gray-200 text-gray-500 hover:border-gray-300"
-              )}
-            >
-              <span className="font-bold">{label}</span>
-              <span className="text-xs text-gray-400 mt-0.5">{desc}</span>
-            </button>
-          ))}
-        </div>
-      )}
 
       {/* Legend */}
       {started && (
@@ -87,7 +57,7 @@ export default function GrapePage() {
             <span className="w-3 h-3 rounded-full bg-green-400 inline-block" /> 선택 가능
           </span>
           <span className="flex items-center gap-1.5">
-            <span className="w-3 h-3 rounded-full bg-orange-400 inline-block" /> 목표
+            <span className="w-3 h-3 rounded-full bg-purple-500 inline-block" /> 목표
           </span>
         </div>
       )}
@@ -96,7 +66,6 @@ export default function GrapePage() {
       {started && dots.length > 0 && (
         <GrapeGrid
           dots={dots}
-          difficulty={difficulty}
           revealed={revealed}
           onClickDot={clickDot}
         />
@@ -121,7 +90,6 @@ export default function GrapePage() {
               score={result.score}
               items={[
                 { label: "반응 시간", value: `${(result.timeMs / 1000).toFixed(2)}초`, highlight: true },
-                { label: "난이도", value: DIFFICULTIES.find(d => d.value === result.difficulty)?.label ?? result.difficulty },
                 { label: "정답 여부", value: result.correct ? "O" : "X" },
               ]}
             />
@@ -129,7 +97,7 @@ export default function GrapePage() {
               <ScoreSaveForm
                 mode="grape"
                 score={result.score}
-                rawData={{ time_ms: result.timeMs, correct: result.correct, difficulty: result.difficulty }}
+                rawData={{ time_ms: result.timeMs, correct: result.correct }}
                 onSaved={() => setSaved(true)}
               />
             )}

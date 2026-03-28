@@ -1,26 +1,20 @@
 "use client";
 
 import { GrapeDot as GrapeDotComponent } from "./GrapeDot";
-import type { GrapeDot, GrapeDifficulty } from "@/types/game";
-import { getGridDimensions } from "@/lib/utils/grape";
+import type { GrapeDot } from "@/types/game";
+import { getGridCols } from "@/lib/utils/grape";
 
 type GrapeGridProps = {
   dots: GrapeDot[];
-  difficulty: GrapeDifficulty;
   revealed: boolean;
   onClickDot: (dot: GrapeDot) => void;
 };
 
-const dotSizes: Record<GrapeDifficulty, number> = {
-  easy:   22,
-  normal: 18,
-  hard:   14,
-};
+const DOT_SIZE = 20;
+const GAP = 3;
 
-export function GrapeGrid({ dots, difficulty, revealed, onClickDot }: GrapeGridProps) {
-  const { cols } = getGridDimensions(difficulty);
-  const dotSize = dotSizes[difficulty];
-  const gap = 3;
+export function GrapeGrid({ dots, revealed, onClickDot }: GrapeGridProps) {
+  const cols = getGridCols();
 
   return (
     <div
@@ -30,8 +24,8 @@ export function GrapeGrid({ dots, difficulty, revealed, onClickDot }: GrapeGridP
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: `repeat(${cols}, ${dotSize}px)`,
-          gap: `${gap}px`,
+          gridTemplateColumns: `repeat(${cols}, ${DOT_SIZE}px)`,
+          gap: `${GAP}px`,
         }}
       >
         {dots.map((dot) => (
@@ -40,7 +34,7 @@ export function GrapeGrid({ dots, difficulty, revealed, onClickDot }: GrapeGridP
             dot={dot}
             revealed={revealed}
             onClick={onClickDot}
-            size={dotSize}
+            size={DOT_SIZE}
           />
         ))}
       </div>

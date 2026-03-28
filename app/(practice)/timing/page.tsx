@@ -54,7 +54,7 @@ export default function TimingPage() {
     <div className="w-full max-w-md flex flex-col items-center gap-8">
       {/* Title */}
       <div className="text-center">
-        <h1 className="text-2xl font-bold text-gray-900">정각 클릭 연습</h1>
+        <h1 className="text-2xl font-bold text-gray-900">예매버튼 클릭 연습</h1>
         <p className="text-sm text-gray-500 mt-1">카운트다운이 0이 되는 순간 버튼을 클릭하세요</p>
       </div>
 

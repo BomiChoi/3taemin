@@ -13,13 +13,13 @@ type GrapeDotProps = {
 const stateStyles = {
   sold:      "bg-gray-200 cursor-not-allowed",
   available: "bg-green-400 hover:bg-green-500 cursor-pointer shadow-sm",
-  target:    "bg-orange-400 hover:bg-orange-500 cursor-pointer shadow-sm ring-2 ring-orange-300",
+  target:    "bg-purple-500 hover:bg-purple-600 cursor-pointer shadow-sm ring-2 ring-purple-300",
 };
 
 const revealedStyles = {
   sold:      "bg-gray-200",
   available: "bg-green-400",
-  target:    "bg-orange-500 ring-2 ring-orange-300 scale-110",
+  target:    "bg-purple-600 ring-2 ring-purple-300 scale-110",
 };
 
 export function GrapeDot({ dot, revealed, onClick, size }: GrapeDotProps) {

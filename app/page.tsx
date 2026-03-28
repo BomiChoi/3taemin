@@ -5,7 +5,7 @@ const modes = [
   {
     href: "/timing",
     icon: Clock,
-    title: "정각 클릭",
+    title: "예매버튼 클릭",
     description: "정확히 정각에 예매 버튼을 클릭하는 연습",
     detail: "카운트다운이 0이 되는 순간 버튼을 클릭하세요. ms 단위로 반응 속도를 측정합니다.",
     badge: "반응속도",
@@ -78,7 +78,7 @@ export default function Home() {
           티켓팅 3종 연습
         </h1>
         <p className="text-gray-500 text-base">
-          정각 클릭 · 보안문자 · 포도알 클릭, 반복 연습으로 실전에 대비하세요
+          예매버튼 클릭 · 보안문자 · 포도알 클릭, 반복 연습으로 실전에 대비하세요
         </p>
       </section>
 

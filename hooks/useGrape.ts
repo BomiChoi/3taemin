@@ -2,14 +2,12 @@
 
 import { useState, useCallback, useRef } from "react";
 import { generateGrapeGrid } from "@/lib/utils/grape";
-import { calcGrapeScore } from "@/lib/utils/score";
-import type { GrapeDot, GrapeDifficulty, GrapeResult } from "@/types/game";
+import type { GrapeDot, GrapeResult } from "@/types/game";
 
 type UseGrapeReturn = {
   dots: GrapeDot[];
   result: GrapeResult | null;
-  difficulty: GrapeDifficulty;
-  start: (difficulty: GrapeDifficulty) => void;
+  start: () => void;
   clickDot: (dot: GrapeDot) => void;
   reset: () => void;
 };
@@ -17,12 +15,10 @@ type UseGrapeReturn = {
 export function useGrape(): UseGrapeReturn {
   const [dots, setDots] = useState<GrapeDot[]>([]);
   const [result, setResult] = useState<GrapeResult | null>(null);
-  const [difficulty, setDifficulty] = useState<GrapeDifficulty>("normal");
   const startTimeRef = useRef<number>(0);
 
-  const start = useCallback((diff: GrapeDifficulty) => {
-    setDifficulty(diff);
-    setDots(generateGrapeGrid(diff));
+  const start = useCallback(() => {
+    setDots(generateGrapeGrid());
     setResult(null);
     startTimeRef.current = Date.now();
   }, []);
@@ -31,14 +27,14 @@ export function useGrape(): UseGrapeReturn {
     if (result) return;
     const timeMs = Date.now() - startTimeRef.current;
     const correct = dot.state === "target";
-    const score = correct ? calcGrapeScore(timeMs, difficulty) : 0;
-    setResult({ correct, timeMs, score, difficulty });
-  }, [result, difficulty]);
+    const score = correct ? Math.max(0, 3000 - timeMs) : 0;
+    setResult({ correct, timeMs, score, difficulty: "normal" });
+  }, [result]);
 
   const reset = useCallback(() => {
     setDots([]);
     setResult(null);
   }, []);
 
-  return { dots, result, difficulty, start, clickDot, reset };
+  return { dots, result, start, clickDot, reset };
 }

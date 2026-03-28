@@ -1,40 +1,28 @@
-import type { GrapeDot, GrapeDifficulty } from "@/types/game";
+import type { GrapeDot } from "@/types/game";
 
-type GridConfig = {
-  cols: number;
-  rows: number;
-  soldRatio: number; // 매진 비율
-};
+const COLS = 10;
+const ROWS = 10;
+const SOLD_RATIO = 0.75;
 
-const DIFFICULTY_CONFIG: Record<GrapeDifficulty, GridConfig> = {
-  easy:   { cols: 10, rows: 7,  soldRatio: 0.72 },
-  normal: { cols: 14, rows: 9,  soldRatio: 0.76 },
-  hard:   { cols: 18, rows: 11, soldRatio: 0.80 },
-};
-
-export function generateGrapeGrid(difficulty: GrapeDifficulty): GrapeDot[] {
-  const { cols, rows, soldRatio } = DIFFICULTY_CONFIG[difficulty];
-  const total = cols * rows;
+export function generateGrapeGrid(): GrapeDot[] {
+  const total = COLS * ROWS;
   const dots: GrapeDot[] = [];
 
-  // 매진 여부를 먼저 결정
   const soldSet = new Set<number>();
-  while (soldSet.size < Math.floor(total * soldRatio)) {
+  while (soldSet.size < Math.floor(total * SOLD_RATIO)) {
     soldSet.add(Math.floor(Math.random() * total));
   }
 
-  // 가용 인덱스 목록
   const availableIndices: number[] = [];
   for (let i = 0; i < total; i++) {
     if (!soldSet.has(i)) availableIndices.push(i);
   }
 
-  // 타겟 1개 랜덤 선택
   const targetIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
 
   for (let i = 0; i < total; i++) {
-    const row = Math.floor(i / cols);
-    const col = i % cols;
+    const row = Math.floor(i / COLS);
+    const col = i % COLS;
     let state: GrapeDot["state"];
     if (i === targetIndex) state = "target";
     else if (soldSet.has(i)) state = "sold";
@@ -46,6 +34,6 @@ export function generateGrapeGrid(difficulty: GrapeDifficulty): GrapeDot[] {
   return dots;
 }
 
-export function getGridDimensions(difficulty: GrapeDifficulty) {
-  return DIFFICULTY_CONFIG[difficulty];
+export function getGridCols() {
+  return COLS;
 }
