@@ -12,6 +12,7 @@ export type CaptchaResult = {
   timeMs: number;
   attempts: number;
   score: number;
+  grade: TimingGrade;
 };
 
 export type GrapeDifficulty = "easy" | "normal" | "hard";

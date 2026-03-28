@@ -115,9 +115,11 @@ export default function CaptchaPage() {
             <ResultCard
               title="보안문자 결과"
               score={result.score}
+              grade={result.grade}
               items={[
                 { label: "소요 시간", value: `${(result.timeMs / 1000).toFixed(2)}초`, highlight: true },
                 { label: "시도 횟수", value: `${result.attempts}회` },
+                { label: "등급", value: result.grade },
               ]}
             />
             {!saved && (

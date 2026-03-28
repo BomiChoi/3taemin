@@ -2,7 +2,14 @@
 
 import { useState, useCallback, useRef } from "react";
 import { calcCaptchaScore } from "@/lib/utils/score";
-import type { CaptchaResult } from "@/types/game";
+import type { CaptchaResult, TimingGrade } from "@/types/game";
+
+function calcCaptchaGrade(timeMs: number, attempts: number): TimingGrade {
+  if (attempts === 1 && timeMs <= 4000) return "Perfect";
+  if (attempts === 1 && timeMs <= 5000) return "Excellent";
+  if (attempts <= 2 && timeMs <= 6000) return "Good";
+  return "Late";
+}
 
 type CaptchaState = {
   sessionKey: string;
@@ -57,7 +64,8 @@ export function useCaptcha(): UseCaptchaReturn {
     if (data.correct) {
       const timeMs = Date.now() - startTimeRef.current;
       const score = calcCaptchaScore(timeMs, currentAttempt);
-      setResult({ correct: true, timeMs, attempts: currentAttempt, score });
+      const grade = calcCaptchaGrade(timeMs, currentAttempt);
+      setResult({ correct: true, timeMs, attempts: currentAttempt, score, grade });
     }
 
     return data.correct;
