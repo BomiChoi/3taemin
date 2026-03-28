@@ -68,7 +68,7 @@ export default function CaptchaPage() {
           )}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={`data:image/png;base64,${captcha.imageBase64}`}
+              src={`data:image/svg+xml;base64,${captcha.imageBase64}`}
               alt="보안문자"
               className="w-full h-auto"
               draggable={false}
