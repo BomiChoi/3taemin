@@ -34,7 +34,7 @@ export function useGrape(): UseGrapeReturn {
     if (result) return;
     const timeMs = Date.now() - startTimeRef.current;
     const correct = dot.state === "target";
-    const score = correct ? Math.max(0, 3000 - timeMs) : 0;
+    const score = correct ? Math.max(0, Math.round((3000 - timeMs) / 3)) : 0;
     const grade = calcGrapeGrade(timeMs);
     setResult({ correct, timeMs, score, grade, difficulty: "normal" });
   }, [result]);

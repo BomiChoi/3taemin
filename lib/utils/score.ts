@@ -18,6 +18,6 @@ export function calcCaptchaScore(timeMs: number, attempts: number): number {
 
 export function calcGrapeScore(timeMs: number, difficulty: GrapeDifficulty): number {
   const multipliers: Record<GrapeDifficulty, number> = { easy: 1, normal: 1.5, hard: 2 };
-  const base = Math.max(0, 3000 - timeMs);
-  return Math.floor(base * multipliers[difficulty]);
+  const base = Math.max(0, Math.round((3000 - timeMs) / 3));
+  return Math.min(1000, Math.floor(base * multipliers[difficulty]));
 }
