@@ -6,17 +6,15 @@ const modes = [
     href: "/timing",
     icon: Clock,
     title: "예매버튼 클릭",
-    description: "정확히 정각에 예매 버튼을 클릭하는 연습",
-    detail: "카운트다운이 0이 되는 순간 버튼을 클릭하세요. ms 단위로 반응 속도를 측정합니다.",
+    description: "정확히 정각에 예매 버튼을 클릭하세요. ms 단위로 반응 속도를 측정합니다.",
     badge: "반응속도",
     color: "blue",
   },
   {
     href: "/captcha",
     icon: KeyRound,
-    title: "보안문자",
-    description: "보안문자를 빠르게 입력하는 연습",
-    detail: "노이즈와 왜곡이 적용된 보안문자를 정확하고 빠르게 입력하세요.",
+    title: "보안문자 입력",
+    description: "노이즈와 왜곡이 적용된 보안문자를 정확하고 빠르게 입력하세요.",
     badge: "정확도",
     color: "purple",
   },
@@ -24,8 +22,7 @@ const modes = [
     href: "/grape",
     icon: Grape,
     title: "포도알 클릭",
-    description: "좌석 선택창에서 빈 자리를 빠르게 찾아 클릭하는 연습",
-    detail: "수많은 매진 좌석 중 선택 가능한 자리를 찾아 클릭하세요.",
+    description: "좌석 선택창에서 빈 자리를 빠르게 찾아 클릭하세요.",
     badge: "집중력",
     color: "green",
   },
@@ -60,7 +57,6 @@ export default function Home() {
         <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-2xl font-black text-teal-600">삼태민</span>
-            <span className="text-xs text-gray-400 font-medium">티켓팅 연습</span>
           </div>
           <Link
             href="/ranking"
@@ -78,14 +74,14 @@ export default function Home() {
           티켓팅 3종 연습
         </h1>
         <p className="text-gray-500 text-base">
-          예매버튼 클릭 · 보안문자 · 포도알 클릭, 반복 연습으로 실전에 대비하세요
+          제발 티켓팅 성공하게 해주세요<br/> 이태민 이태민 이태민!!!
         </p>
       </section>
 
       {/* Mode Cards */}
       <main className="max-w-4xl mx-auto px-4 pb-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {modes.map(({ href, icon: Icon, title, description, detail, badge, color }) => {
+          {modes.map(({ href, icon: Icon, title, description, badge, color }) => {
             const c = colorMap[color];
             return (
               <Link key={href} href={href}>
@@ -101,8 +97,7 @@ export default function Home() {
                     </span>
                   </div>
                   <h2 className="text-lg font-bold text-gray-900 mb-1">{title}</h2>
-                  <p className="text-sm font-medium text-gray-600 mb-2">{description}</p>
-                  <p className="text-xs text-gray-400 leading-relaxed flex-1">{detail}</p>
+                  <p className="text-sm font-medium text-gray-600 mb-2 flex-1">{description}</p>
                   <div className="mt-5 pt-4 border-t border-gray-100">
                     <span className="text-sm font-semibold text-teal-600 group-hover:underline">
                       연습하기 →

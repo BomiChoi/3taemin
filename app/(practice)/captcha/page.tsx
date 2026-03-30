@@ -52,7 +52,7 @@ export default function CaptchaPage() {
       {/* Title */}
       <div className="text-center">
         <h1 className="text-2xl font-bold text-gray-900">보안문자 연습</h1>
-        <p className="text-sm text-gray-500 mt-1">이미지의 문자를 정확하고 빠르게 입력하세요</p>
+        <p className="text-sm text-gray-500 mt-1">이미지의 문자를 정확하고 빠르게 입력하세요.</p>
       </div>
 
       {!captcha ? (
