@@ -51,7 +51,7 @@ export default function CaptchaPage() {
     <div className="w-full max-w-md flex flex-col items-center gap-8">
       {/* Title */}
       <div className="text-center">
-        <h1 className="text-2xl font-bold text-gray-900">보안문자 연습</h1>
+        <h1 className="text-2xl font-bold text-gray-900">보안문자 입력 연습</h1>
         <p className="text-sm text-gray-500 mt-1">이미지의 문자를 정확하고 빠르게 입력하세요.</p>
       </div>
 
